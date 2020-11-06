@@ -51,7 +51,7 @@ DataOutputStream으로 읽어들이면 정상적으로 다시 읽을 수 있다.
 
 ![img](https://lh6.googleusercontent.com/S0Jdwhv_pIzPTL2jZq45TVbogxGNHIErAdkfhZEoDQP4ung7qMB2-kK8qbvQglmKfG9dM-rvSDOHUmi46nifPXzSoXZR2KV4eLZQn-ZH_3Vv4u1qtAV_atP8WbmilZtUdPttdI9f)
 
-![image-20201106162013770](C:\Users\junho\AppData\Roaming\Typora\typora-user-images\image-20201106162013770.png)
+![image-20201106162013770](https://lh5.googleusercontent.com/yp2gTQQg4t0bh_9Y1Rhg5uBCbKNjtcuIhcciHYFR-9AvARLEVDyObYvhzpkgqd7n7XMVOKr3jxbEwEdKxQamaC8Dcn7A6h04sZOiDWvnePOA32NPQDO_95N43QELOVLQk8I76uGt)
 
 ---
 
