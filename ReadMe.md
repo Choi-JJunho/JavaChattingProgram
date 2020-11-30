@@ -78,3 +78,89 @@ pinput.unread(data);
 int data = pinput.read();
 ```
 
+---
+
+
+
+## 03. 파일처리 클래스
+
+Windows, Unix의 파일 접근 구분자는 서로 다르다.
+
+Windows의 경우 C:\, Unix의 경우 / 로 구분하게된다.
+
+파일 경로를 잡을 때 하나의 프로그램이 OS별로 다르게 동작하게 된다면 골치아플 것이다.
+
+JAVA에서 파일처리를 할 때는 이러한 문제를 해결해준다.
+
+
+
+기존의 FileIOStream으로 파일을 읽을 때는 순차적으로 데이터를 읽기 때문에 중간이나 끝에 있는 데이터를 찾을 때 시간이 많이 소요된다. C나 CPP에서 파일 입출력을 수행할때와 마찬가지로 파일 포인터를 통해서 임의 접근을 할 수 있다.
+
+```java
+public RandomAccessFile(String name, String mode) throws FileNotFoundException
+```
+
+name : 파일/폴더의 이름
+
+mode : "r" (읽기모드), "rw" (읽기/쓰기 모드)
+
+기존에 C에서 다룬 방법과 한가지 차이가있다면 java에서는 "w"(쓰기모드)를 지원하지 않는다.
+
+
+
+작성한 WriteRandomFile.java 에서 파일을 저장할 때 binary형식으로 저장하기 때문에 에디터로 확인하기 어렵다.
+
+때문에 `Record` 클래스에 생성해둔 read() 메소드를 사용해야한다.
+
+
+
+추가로 자바는 열려진 모든 파일에 대해 FileDescriptor를 생성하며 이 객체는 실제 파일에 대한 참조자나 파일 내에서 읽기/쓰기 위치와 같은 정보들을 포함하고 있다.
+
+---
+
+## 04. 문자 입출력 스트림
+
+자바는 기본적으로 모든 문자집합에대해 16비트로 구성된 유니코드르 사용한다.
+
+문자 입출력 스트림클래스로는 크게 Reader, Writer로 나누어 볼 수 있다.
+
+이는 각각 InputStream, OutputStream과 대응된다.
+
+
+
+Writer 클래스 (추상메소드) : 문자 배열 text의 offset 위치에 있는 문자부터 length개의 문자를 전송한다.
+
+```java
+public abstract void wirte(char[] text, int offset, int length) throws IOException
+```
+
+
+
+Reader 클래스 (추상메소드) : 스트림으로부터 최대 length 개의 문자를 읽어 buffer 문자 배열의 offsetdㅟ치부터 저장하고 읽은 문자의 수를 반환한다.
+
+```java
+public abstract int read(char[] buffer, int offset, int lenght) throws IOException
+```
+
+---
+
+
+
+### BufferWriter / BufferReader
+
+기본적인 Writer 및 Reader 객체에 버퍼를 추가하여 전송 속도를 증가시킨다.
+
+
+
+### OutputStreamWriter / InputStreamWriter
+
+```java
+public OutputSteramWriter(OutputStream out, String encoding) throws UnsupportedEncodingException
+```
+
+out에 연결하고 encoding으로 명시된 방식으로 문자를 인코딩하는 OutputStreamWriter객체를 생성한다.
+
+사용자가 특별한 인코딩 방식을 지정할 수 있으므로 네트워크 애플리케이션에 적합하다고 볼 수 있다.
+
+
+
